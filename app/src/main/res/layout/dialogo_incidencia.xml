@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="15dp"
+        android:layout_marginRight="20sp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:padding="5dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:padding="8dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvvandalismo"-->
+<!--                        android:text="VANDALISMO"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:textSize="18sp"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content">-->
+<!--                    </TextView>-->
+<!--                    -->
+                    <Button
+                        android:id="@+id/btnvandalismo"
+                        android:background="@drawable/borde_dos"
+                        android:layout_width="wrap_content"
+                        android:text="VANDALISMO"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content">
+                    </Button>
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/btnrobo"
+                        android:background="@drawable/borde_dos"
+                        android:layout_width="wrap_content"
+                        android:text="ROBO O HURTO"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content">
+                    </Button>
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvrobo"-->
+<!--                        android:text="ROBO O HURTO"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:textSize="18sp"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content">-->
+<!--                    </TextView>-->
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="10dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/btnacoso"
+                        android:background="@drawable/borde_dos"
+                        android:layout_width="wrap_content"
+                        android:text="ACOSO SEXUAL"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content"></Button>
+
+<!--                    <TextView-->
+<!--                        android:text="ACOSO SEXUAL"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:textSize="18sp"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content">-->
+<!--                    </TextView>-->
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/btnextorsion"
+                        android:background="@drawable/borde_dos"
+                        android:layout_width="wrap_content"
+                        android:text="EXTORSION"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content"></Button>
+<!--                    <TextView-->
+<!--                        android:text="EXTORSION"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:textSize="18sp"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content">-->
+<!--                    </TextView>-->
+                </LinearLayout>
+
+            </LinearLayout>
+            <Button
+                android:id="@+id/idbtncerrardialogo3"
+                android:layout_marginTop="5dp"
+                android:text="cancelar"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_marginBottom="30dp"
+                android:layout_height="wrap_content">
+            </Button>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

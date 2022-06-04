@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.appreporte">
+
+    <uses-permission
+        android:name="android.permission.ACCESS_COARSE_LOCATION"
+        android:maxSdkVersion="22" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- - para usar la camara desde la App -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- escribir en memoria para guardar las fotos -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppReporte"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ContenedorActivity"
+            android:exported="true">
+
+
+        </activity>
+
+        <activity
+            android:name=".Activity.DetalleIncidenciaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.EditPerfilActivity"
+            android:exported="true"
+            android:label="Editar Perfil"
+            android:parentActivityName=".PrincipalActivity" />
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activity.IncidenciaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.UbicacionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".RegistroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PrincipalActivity"
+            android:exported="true"
+            android:label="@string/title_activity_principal"
+            android:theme="@style/Theme.AppReporte.NoActionBar" >
+
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBOvRCYUhSBurum7waurXDF6bUZbruts7Q" />
+    </application>
+
+</manifest>

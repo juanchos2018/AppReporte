@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp"
+    android:gravity="center"
+
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:textColorHint="@color/white"-->
+<!--        app:boxStrokeColor="@color/white"-->
+<!--        app:placeholderTextColor="@color/white"-->
+<!--        android:layout_width="match_parent"-->
+<!--        app:counterTextColor="@color/white"-->
+<!--        app:helperTextTextColor="@color/white"-->
+<!--        app:hintTextColor="@color/white"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:outlineAmbientShadowColor="@color/white"-->
+<!--        app:counterOverflowTextColor="@color/white"-->
+<!--        app:prefixTextColor="@color/white"-->
+<!--        android:outlineSpotShadowColor="@color/white"-->
+<!--        app:suffixTextColor="@color/white"-->
+<!--        app:boxStrokeErrorColor="@color/white"-->
+
+<!--        >-->
+<!--        <EditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/etcorreo"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textColorHint="@color/white"-->
+
+<!--            android:outlineSpotShadowColor="@color/white"-->
+<!--            android:shadowColor="@color/white"-->
+<!--            android:textColorLink="@color/white"-->
+<!--            android:inputType="textEmailAddress"-->
+<!--            android:hint="Ingrese Correo"-->
+<!--            />-->
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+<!--    -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        >
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/etcorreo"
+            android:text="yulino@gmail.com"
+            android:inputType="textEmailAddress"
+            android:hint="Ingrese Correo"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/inputpassword"
+            android:text="123456"
+            android:inputType="textEmailAddress"
+            android:hint="Ingrese Contraseña"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/btniniciar"
+        android:layout_width="match_parent"
+        android:text="iniciar sesion"
+        android:textColor="@color/black"
+        android:background="@drawable/bode_uno"
+        android:layout_height="wrap_content">
+    </Button>
+    <Button
+        android:layout_marginTop="40dp"
+        android:id="@+id/btnregistrarse"
+        android:background="@drawable/borde_dos"
+        android:layout_width="match_parent"
+        android:text="registarse aqui"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content">
+    </Button>
+</LinearLayout>

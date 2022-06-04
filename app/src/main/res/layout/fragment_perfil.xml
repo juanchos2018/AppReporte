@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.perfil.PerfilFragment"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:background="@drawable/gradientbackground"
+            android:orientation="vertical">
+            <!--        <Button-->
+
+            <!--            android:layout_gravity="right"-->
+            <!--            android:drawableStart="@drawable/ic_edit"-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content">-->
+
+            <!--        </Button>-->
+            <ImageView
+                android:id="@+id/imgeditar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/ic_edit">
+
+            </ImageView>
+
+            <com.github.siyamed.shapeimageview.CircularImageView
+                android:layout_width="120dp"
+                android:layout_height="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/default_profile_image"
+                app:siBorderColor="@color/teal_200"
+                app:siBorderWidth="2dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="Gomez Quiroz Yumin"
+                android:textColor="#fff"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:cardElevation="5dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="275dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="3">
+                <LinearLayout
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fecha"
+                        android:textSize="17sp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2022-05-14"
+                        android:textStyle="bold"
+                        android:textSize="17sp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/blue_link"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Incidencias"
+                        android:textSize="17sp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="8"
+                        android:textStyle="bold"
+                        android:textSize="17sp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/blue_link"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sugerencias"
+                        android:textSize="17sp"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/blue_link"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_incidencia"/>
+            <TextView
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:text="Mis Incidencias"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_phone"/>
+            <TextView
+                android:textStyle="bold"
+
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:text="+266 225 225"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_location"/>
+            <TextView
+                android:textStyle="bold"
+
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:text="Av. San Martikn 1168"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".ui.perfil.PerfilFragment">-->
+
+<!--    &lt;!&ndash; TODO: Update blank fragment layout &ndash;&gt;-->
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="@string/hello_blank_fragment" />-->
+
+<!--</FrameLayout>-->

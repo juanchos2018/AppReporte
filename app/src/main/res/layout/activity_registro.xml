@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistroActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/red"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:titleTextColor="@color/white"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ImageView
+            android:id="@+id/imageViewplaces3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_left" />
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1.5"
+                android:layout_height="wrap_content"
+                android:text="Registro de Usuario"
+                android:textColor="@color/white"
+                android:textSize="20sp">
+            </TextView>
+            <ImageView
+                android:id="@+id/imgSaveUser"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:src="@drawable/ic_save"
+                android:layout_height="50dp">
+
+            </ImageView>
+<!--            <TextView-->
+<!--               android:gravity="right"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Vehiculos"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="20sp">-->
+<!--            </TextView>-->
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:padding="25dp"
+        android:layout_height="match_parent">
+
+
+    <com.github.siyamed.shapeimageview.CircularImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/default_profile_image"
+        app:siBorderWidth="2dp"
+        app:siBorderColor="@color/teal_200"/>
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:text="foto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </Button>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <EditText
+
+            android:id="@+id/etNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese Nombre"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <EditText
+
+            android:id="@+id/etApellido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese Apellido"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="1dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                >
+                <EditText
+                    android:id="@+id/etDni"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingrese Dni"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginTop="10dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="1dp"
+                android:layout_height="wrap_content"
+                >
+                <EditText
+
+                    android:id="@+id/etPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="Ingrese Numero"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <EditText
+
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese Correo"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <EditText
+
+            android:id="@+id/etPassword"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese Contraseña"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="3"
+
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginTop="10dp"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            >
+            <EditText
+                android:text="Avenida leguia"
+                android:id="@+id/etLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:layout_marginLeft="5dp"
+            android:id="@+id/btnubicacion"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            android:text="mi ubicacion"
+            android:layout_height="wrap_content">
+
+        </Button>
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/checkaceptar"
+        android:layout_marginTop="20dp"
+        android:text="Aceptar Terminos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </CheckBox>
+
+
+    </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
