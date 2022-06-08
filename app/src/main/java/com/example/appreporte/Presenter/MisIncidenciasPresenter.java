@@ -29,7 +29,6 @@ public class MisIncidenciasPresenter {
     private static final String TAG = "mis incidencias";
     private InterfaceIncidencia2 interfaceIncidencia2;
     private RequestQueue queue;
-    private User userResponse;
     ArrayList<Incidencia> listaIncidencia;
 
     public MisIncidenciasPresenter(InterfaceIncidencia2 interfaceIncidencia2) {
@@ -59,7 +58,6 @@ public class MisIncidenciasPresenter {
                             ArrayList<Incidencia>    list1 = gson.fromJson(result, userListType);
                             for (Incidencia item : list1) {
                                    listaIncidencia.add(item);
-                                   //System.out.println(item.getDescription());
                              }
                             interfaceIncidencia2.onRequestSuccess(listaIncidencia);
 

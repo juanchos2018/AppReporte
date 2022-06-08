@@ -100,7 +100,7 @@ public class AddIncidenciaPresenter {
         JSONObject jsonBody = new JSONObject();
         try {
 
-            jsonBody.put("descrition", incidencia.getDescription());
+            jsonBody.put("description", incidencia.getDescription());
             jsonBody.put("location", incidencia.getLocation());
             jsonBody.put("lat", incidencia.getLat());
             jsonBody.put("lon", incidencia.getLon());

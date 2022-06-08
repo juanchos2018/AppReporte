@@ -48,30 +48,24 @@ public class AdapterMisIncidencias  extends RecyclerView.Adapter<AdapterMisIncid
     public void onBindViewHolder(@NonNull ViewHolderDatos holder, int position) {
         if (holder instanceof ViewHolderDatos){
             final ViewHolderDatos items =(ViewHolderDatos)holder;
-
-            items.tvtitleincidencia.setText(listaIncidencia.get(position).getDescription());
+            items.tvtype_incidence.setText(listaIncidencia.get(position).getType_incidence());
             items.tvlocation.setText(listaIncidencia.get(position).getLocation());
             Picasso.get().load(listaIncidencia.get(position).getPhoto()).into(items.imgincidencia);
-
-
         }
     }
 
     @Override
     public int getItemCount() {
         return listaIncidencia.size();
-
     }
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
-        TextView tvtitleincidencia,tvlocation;
+        TextView tvtype_incidence,tvlocation;
         ImageView imgincidencia;
-
 
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
-
-            tvtitleincidencia=(TextView)itemView.findViewById(R.id.tvtitleincidencia);
+            tvtype_incidence=(TextView)itemView.findViewById(R.id.tvtype_incidence);
             tvlocation=(TextView)itemView.findViewById(R.id.tvlocation);
             imgincidencia=(ImageView)itemView.findViewById(R.id.imgincidencia);
         }

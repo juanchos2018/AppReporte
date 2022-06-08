@@ -161,8 +161,10 @@ public class IncidenciaActivity extends AppCompatActivity  implements InterfaceA
     private void saveIncidence(String description) {
         SharedPreferences sharedPreferences2 = getSharedPreferences("USER", MODE_PRIVATE);
         String usuario_id =sharedPreferences2.getString("id", "");
+        String lat_share =sharedPreferences2.getString("lat", "");
+        String lon_share =sharedPreferences2.getString("lon", "");
         String curren_date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-        Incidencia obj = new Incidencia("",curren_date,type_incidence_id,"nueva incidencia",description,"mi casa we","",Integer.parseInt(usuario_id),"",-18.0342353,-70.2411543,organization_id);
+        Incidencia obj = new Incidencia("",curren_date,type_incidence_id,"nueva incidencia",description,"mi casa we","",Integer.parseInt(usuario_id),"",Double.parseDouble(lat_share),Double.parseDouble(lon_share),organization_id);
 
         addPresenter.uploadPhoto(obj,urifoto);
     }

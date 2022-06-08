@@ -117,7 +117,7 @@ public class RegistroPresenter {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-          //  interfaceRegistro.showLoading(true);
+          //interfaceRegistro.showLoading(true);
             ProgressDialog progressDialog= new ProgressDialog(interfaceRegistro.getContext());
             progressDialog.setMessage("Cargando..");
             progressDialog.setCancelable(false);

@@ -28,7 +28,7 @@
                 android:layout_height="80dp">
             </ImageView>
             <TextView
-                android:id="@+id/tvtitleincidencia"
+                android:id="@+id/tvtype_incidence"
                 android:layout_marginTop="10dp"
                 android:text="Robro o hurto"
                 android:layout_width="wrap_content"

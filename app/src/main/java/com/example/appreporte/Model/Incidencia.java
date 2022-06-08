@@ -15,6 +15,8 @@ public class Incidencia {
     Double lon;
     String organization_id;
 
+    String type_incidence;
+
     public  Incidencia(){
 
     }
@@ -35,6 +37,14 @@ public class Incidencia {
         this.organization_id=organization_id;
 
 
+    }
+
+    public String getType_incidence() {
+        return type_incidence;
+    }
+
+    public void setType_incidence(String type_incidence) {
+        this.type_incidence = type_incidence;
     }
 
     public String getId() {
