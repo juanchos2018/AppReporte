@@ -17,12 +17,10 @@ public class NumerosPresenter {
     private static final String TAG ="Incidencia2Presenter" ;
     ArrayList<Numeros> listaItems;
 
+
     public NumerosPresenter(InterfaceNumeros interfaceNumeros) {
         this.interfaceNumeros = interfaceNumeros;
     }
-
-
-
 
 
 
