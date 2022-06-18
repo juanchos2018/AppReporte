@@ -231,7 +231,7 @@ public class HomeFragment extends Fragment  implements OnMapReadyCallback{
                                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(
                                         new LatLng(lastKnownLocation.getLatitude(),
                                                 lastKnownLocation.getLongitude()), DEFAULT_ZOOM));
-                                Toast.makeText(getContext(), "getLatitude :" + String.valueOf(lastKnownLocation.getLatitude()), Toast.LENGTH_SHORT).show();
+                               // Toast.makeText(getContext(), "getLatitude :" + String.valueOf(lastKnownLocation.getLatitude()), Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             Log.d("message", "Current location is null. Using defaults.");

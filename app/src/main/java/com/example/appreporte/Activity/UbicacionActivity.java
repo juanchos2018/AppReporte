@@ -23,6 +23,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.appreporte.Interface.InterfaceLocation;
+import com.example.appreporte.Presenter.AddIncidenciaPresenter;
+import com.example.appreporte.Presenter.LocationPresenter;
 import com.example.appreporte.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -41,13 +44,14 @@ import com.google.android.libraries.places.api.net.PlacesClient;
 
 import java.text.DecimalFormat;
 
-public class UbicacionActivity extends AppCompatActivity implements OnMapReadyCallback, View.OnClickListener {
+public class UbicacionActivity extends AppCompatActivity implements OnMapReadyCallback, View.OnClickListener, InterfaceLocation {
 
 
  //   private GoogleMap mMap;
 
     double lat_current, lon_current;
     Location location;
+    String location_desp;
     LocationManager lm;
     Button btnenviar;
 
@@ -64,6 +68,7 @@ public class UbicacionActivity extends AppCompatActivity implements OnMapReadyCa
     private static final String KEY_CAMERA_POSITION = "camera_position";
     private static final String KEY_LOCATION = "location";
 
+    private LocationPresenter presenter;
 
 
     @Override
@@ -86,6 +91,8 @@ public class UbicacionActivity extends AppCompatActivity implements OnMapReadyCa
 
         btnenviar=(Button) findViewById(R.id.btnenviar);
         btnenviar.setOnClickListener(this);
+
+        presenter= new LocationPresenter(this);
 
 
 
@@ -136,8 +143,10 @@ public class UbicacionActivity extends AppCompatActivity implements OnMapReadyCa
                     LatLng cliente = new LatLng(latLng.latitude, latLng.longitude);
                     lat_current=latLng.latitude;
                     lon_current=latLng.longitude;
+                    presenter.InfoLocation(lat_current,lon_current);
+
                     map.addMarker(new MarkerOptions().anchor(0.1f,0.5f).position(cliente).title("Yo"));
-                    Toast.makeText(UbicacionActivity.this, "position lat "+ String.valueOf(latLng.latitude) +" - lon" + String.valueOf(latLng.longitude), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(UbicacionActivity.this, "position lat "+ String.valueOf(latLng.latitude) +" - lon" + String.valueOf(latLng.longitude), Toast.LENGTH_SHORT).show();
                 }
             });
 //            Toast.makeText(this, "performAction", Toast.LENGTH_SHORT).show();
@@ -145,6 +154,8 @@ public class UbicacionActivity extends AppCompatActivity implements OnMapReadyCa
 //            requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION);
 //        }
     }
+
+
 
     @Override
     public void onClick(View view) {
@@ -156,6 +167,7 @@ public class UbicacionActivity extends AppCompatActivity implements OnMapReadyCa
                     Intent returnIntent = new Intent();
                     returnIntent.putExtra("lat",poslate);
                     returnIntent.putExtra("lon",poslon);
+                    returnIntent.putExtra("address",location_desp);
                     setResult(Activity.RESULT_OK,returnIntent);
                     finish();
                     break;
@@ -238,5 +250,31 @@ public class UbicacionActivity extends AppCompatActivity implements OnMapReadyCa
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
         updateLocationUI();
+    }
+
+    @Override
+    public void showLoading(boolean state) {
+
+    }
+
+    @Override
+    public void onRequestSuccess(String object) {
+        location_desp=object;
+        Toast.makeText(this, object, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRequestError(Object object) {
+
+    }
+
+    @Override
+    public void onFail(String message) {
+
+    }
+
+    @Override
+    public Context getContext() {
+        return this;
     }
 }

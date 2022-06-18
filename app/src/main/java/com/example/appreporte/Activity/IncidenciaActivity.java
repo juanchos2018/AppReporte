@@ -30,6 +30,7 @@ import android.os.Environment;
 import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -60,7 +61,7 @@ import com.pusher.client.PusherOptions;
 import com.pusher.client.channel.Channel;
 import com.pusher.client.channel.SubscriptionEventListener;
 
-public class IncidenciaActivity extends AppCompatActivity  implements InterfaceAdd {
+public class IncidenciaActivity extends AppCompatActivity  implements InterfaceAdd, View.OnClickListener {
 
 
     ImageView imglocation;
@@ -85,13 +86,35 @@ public class IncidenciaActivity extends AppCompatActivity  implements InterfaceA
     private AddIncidenciaPresenter addPresenter;
 
     PusherOptions options = new PusherOptions();
+    private static final int SECOND_ACTIVITY_REQUEST_CODE = 1;
 
+
+    String lati,longi,address;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_incidencia);
 
+
+        inits();
+
+        if (solicitaPermisosVersionesSuperiores()){}
+
+        type_incidence_id=getIntent().getStringExtra("id");
+        organization_id=getIntent().getStringExtra("organization_id");
+
+        storageReference = FirebaseStorage.getInstance().getReference();
+        addPresenter= new AddIncidenciaPresenter(this,storageReference);
+
+
+        Pusher pusher = new Pusher("82e50670bca8ae634294", options);
+        Channel channel = pusher.subscribe("my-channel");
+        pusher.connect();
+
+    }
+
+    private void inits() {
 
         imgFoto = (ImageView) findViewById(R.id.imgfoto);
         imgGaleri=(ImageView)findViewById(R.id.imggalery);
@@ -100,73 +123,63 @@ public class IncidenciaActivity extends AppCompatActivity  implements InterfaceA
 
         imgSave=(ImageView)findViewById(R.id.imgsave);
         imglocation=(ImageView)findViewById(R.id.imglocation);
-        imgcamera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                abriCamara();
-            }
-        });
+        tvdireccion=(TextView) findViewById(R.id.tvdireccion);
 
-        imgGaleri.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                abrirgaleria();
-            }
-        });
-        imgSave.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.N)
-            @Override
-            public void onClick(View view) {
-                String description=etdescription.getText().toString();
-                saveIncidence(description);
-            }
-        });
-
-        if (solicitaPermisosVersionesSuperiores()){
-        }
-        type_incidence_id=getIntent().getStringExtra("id");
-        organization_id=getIntent().getStringExtra("organization_id");
-
-        storageReference = FirebaseStorage.getInstance().getReference();
-        addPresenter= new AddIncidenciaPresenter(this,storageReference);
-
-
-
-
-        Pusher pusher = new Pusher("82e50670bca8ae634294", options);
-        Channel channel = pusher.subscribe("my-channel");
-        pusher.connect();
-        imglocation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sendpushhser();
-            }
-        });
-
-//        channel.bind("my-event", new SubscriptionEventListener() {
-//            @Override
-//            public void onEvent(String channelName, String eventName, String data) {
-//                System.out.println(data);
-//            }
-//        });
+        imgcamera.setOnClickListener(this);
+        imgGaleri.setOnClickListener(this);
+        imgSave.setOnClickListener(this);
+        imglocation.setOnClickListener(this);
 
     }
 
-    private void sendpushhser() {
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    @Override
+    public void onClick(View view) {
+            switch (view.getId()){
+                case R.id.imgcamera:
+                    abriCamara();
+                    break;
+                case R.id.imggalery:
+                    abrirgaleria();
+                    break;
+                case R.id.imgsave:
+                    String description=etdescription.getText().toString();
+                    saveIncidence(description);
+                    break;
+                case R.id.imglocation:
+                    updateLocation();
+                    break;
+            }
+    }
 
-        addPresenter.sendPusher();
+    private void updateLocation() {
+        Intent intent = new Intent(this, UbicacionActivity.class);
+        startActivityForResult(intent, SECOND_ACTIVITY_REQUEST_CODE);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void saveIncidence(String description) {
-        SharedPreferences sharedPreferences2 = getSharedPreferences("USER", MODE_PRIVATE);
-        String usuario_id =sharedPreferences2.getString("id", "");
-        String lat_share =sharedPreferences2.getString("lat", "");
-        String lon_share =sharedPreferences2.getString("lon", "");
-        String curren_date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-        Incidencia obj = new Incidencia("",curren_date,type_incidence_id,"nueva incidencia",description,"mi casa we","",Integer.parseInt(usuario_id),"",Double.parseDouble(lat_share),Double.parseDouble(lon_share),organization_id);
 
-        addPresenter.uploadPhoto(obj,urifoto);
+        SharedPreferences sharedPreferences2 = getSharedPreferences("USER", MODE_PRIVATE);
+
+        if (TextUtils.isEmpty(lati) && TextUtils.isEmpty(longi)){
+            String usuario_id =sharedPreferences2.getString("id", "");
+            String lat_share =sharedPreferences2.getString("lat", "");
+            String lon_share =sharedPreferences2.getString("lon", "");
+            String curren_date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+            Incidencia obj = new Incidencia("",curren_date,type_incidence_id,"nueva incidencia",description,"mi casa we","",Integer.parseInt(usuario_id),"",Double.parseDouble(lat_share),Double.parseDouble(lon_share),organization_id);
+
+            addPresenter.uploadPhoto(obj,urifoto);
+
+        }else{
+
+            String usuario_id =sharedPreferences2.getString("id", "");
+            String curren_date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+            Incidencia obj = new Incidencia("",curren_date,type_incidence_id,"nueva incidencia",description,"mi casa we","",Integer.parseInt(usuario_id),"",Double.parseDouble(lati),Double.parseDouble(longi),organization_id);
+
+            addPresenter.uploadPhoto(obj,urifoto);
+        }
+
     }
 
     private void abrirgaleria() {
@@ -258,6 +271,14 @@ public class IncidenciaActivity extends AppCompatActivity  implements InterfaceA
                 break;
             case RESULT_CANCELED:
                 Toast.makeText(this, "se canceló la foto", Toast.LENGTH_SHORT).show();
+                break;
+            case SECOND_ACTIVITY_REQUEST_CODE:
+                if (resultCode == RESULT_OK) {
+                    lati = data.getStringExtra("lat");
+                    longi = data.getStringExtra("lon");
+                    address = data.getStringExtra("address");
+                    tvdireccion.setText(address);
+                }
                 break;
         }
         if (bitmap==null){
@@ -433,4 +454,6 @@ public class IncidenciaActivity extends AppCompatActivity  implements InterfaceA
         alert1.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         alert1.show();
     }
+
+
 }

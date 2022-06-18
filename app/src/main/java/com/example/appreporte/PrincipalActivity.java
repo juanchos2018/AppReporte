@@ -1,6 +1,8 @@
 package com.example.appreporte;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -75,6 +77,24 @@ public class PrincipalActivity extends AppCompatActivity    {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                Salir();
+                return true;
 
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+    private void  Salir(){
 
+        SharedPreferences preferences = getSharedPreferences("USER", MODE_PRIVATE);
+        preferences.edit().remove("id").commit();
+        Intent intent =new  Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

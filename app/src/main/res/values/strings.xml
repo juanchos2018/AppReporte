@@ -14,4 +14,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="url_base">http://192.168.1.209:8000/</string>
+    <string name="url_maps">https://maps.googleapis.com/maps/api/geocode/</string>
+    <string name="key_map">AIzaSyCM8Ig4QP2vkHy8ln4l5lvjtloSH8AU50Q</string>
+
 </resources>

@@ -45,6 +45,7 @@
           android:layout_height="wrap_content">
 
           <TextView
+              android:drawableLeft="@drawable/ic_location_dos"
               android:id="@+id/location"
               android:text="Av. venidasd sdfndfd Peru"
               android:layout_width="0dp"
